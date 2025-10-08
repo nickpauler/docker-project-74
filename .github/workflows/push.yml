@@ -19,14 +19,14 @@ jobs:
       - name: Show Docker versions
         run: |
           docker --version
-          docker compose version || docker-compose --version
+          docker compose version
 
       - name: Run tests (compose)
-        run: docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
+        run: docker compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
 
       - name: Cleanup
         if: always()
-        run: docker-compose -f docker-compose.yml down -v
+        run: docker compose -f docker-compose.yml down -v
 
   build_and_push:
     name: Build & push production image
