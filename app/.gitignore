@@ -6,4 +6,5 @@ dist/
 tmp/
 temp/
 .env
+.DS_Store
 *.sqlite
